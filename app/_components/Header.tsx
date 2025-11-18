@@ -3,8 +3,8 @@
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
 
-const LOGO_SRC = '/LETTERINNGG.png' 
-const ICON_SRC = '/ICONE.png' 
+const LOGO_SRC = '/LETTERINNGG.png'
+const ICON_SRC = '/ICONE.png'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -14,7 +14,7 @@ export default function Header() {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50)
-      
+
       const sections = ['inicio', 'sobre', 'servicos', 'imoveis', 'contato']
       const currentSection = sections.find(section => {
         const element = document.getElementById(section)
@@ -24,7 +24,7 @@ export default function Header() {
         }
         return false
       })
-      
+
       if (currentSection) {
         setActiveItem(currentSection)
       }
@@ -57,12 +57,11 @@ export default function Header() {
   ]
 
   return (
-    <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
-        isScrolled 
-          ? 'bg-black/95 backdrop-blur-2xl shadow-2xl border-b border-[#BC6C25]/30 py-3' 
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${isScrolled
+          ? 'bg-black/95 backdrop-blur-2xl shadow-2xl border-b border-[#BC6C25]/30 py-3'
           : 'bg-black py-5'
-      }`}
+        }`}
     >
       <div className="container mx-auto px-6">
         <div className="flex justify-between items-center h-16">
@@ -72,18 +71,18 @@ export default function Header() {
             className="relative h-full transition-all duration-500 hover:scale-105 active:scale-95 flex items-center group"
           >
             <div className="relative">
-              <Image 
+              <Image
                 src={isScrolled ? ICON_SRC : LOGO_SRC}
                 alt="Wanessa Teixeira Negócios Imobiliários"
-                width={isScrolled ? 45 : 280}
-                height={isScrolled ? 45 : 60}
+                width={isScrolled ? 45 : 350} {/* Aumentado de 280 para 350 */}
+                height={isScrolled ? 45 : 75}  {/* Aumentado de 60 para 75 */}
                 className="object-contain transition-all duration-700 filter brightness-100 group-hover:brightness-110"
               />
               {/* Efeito de brilho na logo */}
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#BC6C25]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 -skew-x-12 transform translate-x-[-100%] group-hover:translate-x-[100%]"></div>
             </div>
           </button>
-          
+
           {/* Navegação Premium */}
           <nav className="hidden lg:flex items-center space-x-1">
             {navItems.map((item) => (
@@ -92,24 +91,21 @@ export default function Header() {
                 onClick={() => scrollToSection(item.href)}
                 onMouseDown={(e) => e.currentTarget.style.transform = 'scale(0.95)'}
                 onMouseUp={(e) => e.currentTarget.style.transform = 'scale(1)'}
-                className={`relative px-6 py-3 font-medium transition-all duration-500 group overflow-hidden ${
-                  activeItem === item.href
-                    ? 'text-[#BC6C25] font-semibold' 
+                className={`relative px-6 py-3 font-medium transition-all duration-500 group overflow-hidden ${activeItem === item.href
+                    ? 'text-[#BC6C25] font-semibold'
                     : 'text-white/80 hover:text-[#BC6C25]'
-                }`}
+                  }`}
               >
                 {/* Efeito de fundo dourado sutil */}
-                <div className={`absolute inset-0 bg-gradient-to-r from-[#BC6C25]/0 via-[#BC6C25]/5 to-[#BC6C25]/0 transition-all duration-500 ${
-                  activeItem === item.href ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
-                }`} />
-                
+                <div className={`absolute inset-0 bg-gradient-to-r from-[#BC6C25]/0 via-[#BC6C25]/5 to-[#BC6C25]/0 transition-all duration-500 ${activeItem === item.href ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
+                  }`} />
+
                 {/* Linha dourada animada */}
-                <div className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-[#BC6C25] to-[#DDA15E] transition-all duration-500 ${
-                  activeItem === item.href 
-                    ? 'w-full' 
+                <div className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-[#BC6C25] to-[#DDA15E] transition-all duration-500 ${activeItem === item.href
+                    ? 'w-full'
                     : 'w-0 group-hover:w-full'
-                }`} />
-                
+                  }`} />
+
                 <span className="relative z-10 flex items-center gap-2 tracking-wide">
                   {item.label}
                   {activeItem === item.href && (
@@ -118,7 +114,7 @@ export default function Header() {
                 </span>
               </button>
             ))}
-            
+
             {/* CTA Button Premium */}
             <button
               onClick={() => scrollToSection('contato')}
@@ -132,7 +128,7 @@ export default function Header() {
             >
               {/* Efeito de brilho */}
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 transform translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
-              
+
               <span className="relative z-10 flex items-center gap-2">
                 Fale Conosco
                 <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
@@ -143,7 +139,7 @@ export default function Header() {
           </nav>
 
           {/* Mobile Menu Button Premium */}
-          <button 
+          <button
             className={`lg:hidden p-3 rounded-xl transition-all duration-500 group relative
               ${isMenuOpen ? 'bg-[#BC6C25]/10 text-[#BC6C25]' : 'text-white/80 hover:text-[#BC6C25] hover:bg-[#BC6C25]/5'}`}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -157,9 +153,8 @@ export default function Header() {
         </div>
 
         {/* Mobile Menu Premium */}
-        <div className={`lg:hidden overflow-hidden transition-all duration-700 ${
-          isMenuOpen ? 'max-h-96 opacity-100 mt-4' : 'max-h-0 opacity-0'
-        }`}>
+        <div className={`lg:hidden overflow-hidden transition-all duration-700 ${isMenuOpen ? 'max-h-96 opacity-100 mt-4' : 'max-h-0 opacity-0'
+          }`}>
           <div className="py-6 border-t border-[#BC6C25]/20 bg-black/95 backdrop-blur-2xl rounded-2xl">
             <div className="flex flex-col space-y-3">
               {navItems.map((item) => (
@@ -167,8 +162,8 @@ export default function Header() {
                   key={item.href}
                   onClick={() => scrollToSection(item.href)}
                   className={`py-4 px-6 text-left font-medium rounded-xl transition-all duration-500 group
-                    ${activeItem === item.href 
-                      ? 'bg-[#BC6C25]/10 text-[#BC6C25] border-l-4 border-[#BC6C25] font-semibold' 
+                    ${activeItem === item.href
+                      ? 'bg-[#BC6C25]/10 text-[#BC6C25] border-l-4 border-[#BC6C25] font-semibold'
                       : 'text-white/80 hover:text-[#BC6C25] hover:bg-[#BC6C25]/5'
                     }`}
                 >
@@ -180,7 +175,7 @@ export default function Header() {
                   </span>
                 </button>
               ))}
-              
+
               {/* Mobile CTA Premium */}
               <button
                 onClick={() => scrollToSection('contato')}
