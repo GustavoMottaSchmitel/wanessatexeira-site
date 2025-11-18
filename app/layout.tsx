@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   title: 'Wanessa Teixeira - Corretora de Imóveis',
   description: 'Profissionalismo e confiança em negócios imobiliários',
   icons: {
-    icon: '/ICONE.ico', 
+    icon: '/ICONE1.ico', 
   },
 }
 
