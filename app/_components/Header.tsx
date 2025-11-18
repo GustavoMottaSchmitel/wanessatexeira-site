@@ -74,8 +74,8 @@ export default function Header() {
               <Image
                 src={isScrolled ? ICON_SRC : LOGO_SRC}
                 alt="Wanessa Teixeira Negócios Imobiliários"
-                width={isScrolled ? 45 : 350} {/* Aumentado de 280 para 350 */}
-                height={isScrolled ? 45 : 75}  {/* Aumentado de 60 para 75 */}
+                width={isScrolled ? 45 : 350} 
+                height={isScrolled ? 45 : 75} 
                 className="object-contain transition-all duration-700 filter brightness-100 group-hover:brightness-110"
               />
               {/* Efeito de brilho na logo */}
