@@ -25,6 +25,9 @@ const allura = Allura({
 export const metadata: Metadata = {
   title: 'Wanessa Teixeira - Corretora de Imóveis',
   description: 'Profissionalismo e confiança em negócios imobiliários',
+  icons: {
+    icon: '/ICONE.ico', 
+  },
 }
 
 export default function RootLayout({
