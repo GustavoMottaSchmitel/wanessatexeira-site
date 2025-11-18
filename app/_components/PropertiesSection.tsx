@@ -96,11 +96,11 @@ export default function Properties() {
       id: 2,
       title: 'CASA LINEAR – ENSEADA DE JACARAÍPE',
       type: 'casa',
-      price: 329000, 
+      price: 329000,
       address: 'Enseada de Jacaraípe - Serra/ES',
       bedrooms: 2,
       bathrooms: 1,
-      area: 67, 
+      area: 67,
       images: [
         '/imovel2/imagem1.jpeg',
         '/imovel2/imagem2.jpeg',
@@ -132,6 +132,54 @@ export default function Properties() {
         'Valor promocional na planta: R$ 329.000',
         'Após início do acabamento: R$ 350.000',
         'Previsão de entrega: Março de 2026'
+      ]
+    },
+
+    {
+      id: 3,
+      title: 'EDIFÍCIO INFINITY – ITAPARICA, VILA VELHA/ES',
+      type: 'apartamento',
+      price: 650000,
+      address: 'Edifício Infinity, Itaparica - Vila Velha/ES',
+      bedrooms: 2,
+      bathrooms: 1,
+      area: 0, 
+      images: [
+        '/edificioinfinity/imagem1.jpeg',
+        '/edificioinfinity/imagem2.jpeg',
+        '/edificioinfinity/imagem3.jpeg',
+        '/edificioinfinity/imagem4.jpeg',
+        '/edificioinfinity/imagem5.jpeg',
+        '/edificioinfinity/imagem6.jpeg',
+        '/edificioinfinity/imagem7.jpeg',
+        '/edificioinfinity/imagem8.jpeg',
+        '/edificioinfinity/imagem9.jpeg',
+        '/edificioinfinity/imagem10.jpeg',
+        '/edificioinfinity/imagem11.jpeg',
+        '/edificioinfinity/imagem12.jpeg',
+      ],
+      featured: false,
+      ref: '—', 
+      description:
+        'Apartamento moderno no Edifício Infinity, um dos empreendimentos mais desejados de Itaparica! Possui armários planejados na cozinha e sala, andar alto com ótima iluminação e ventilação, além de uma localização privilegiada a apenas 2 quadras do mar.',
+      amenities: [
+        '2 quartos',
+        'Cozinha e sala com armários planejados',
+        'Andar alto com vista livre',
+        'Excelente iluminação e ventilação',
+        'Perfeito para moradia ou investimento (Airbnb)'
+      ],
+      condominiumFeatures: [
+        'Piscina',
+        'Academia',
+        'Salão de festas',
+        'Espaço gourmet',
+        'Área de lazer completa',
+        'Empreendimento bem estruturado'
+      ],
+      financing: [
+        'Aceita financiamento',
+        'Excelente opção para investir ou morar'
       ]
     }
 
@@ -231,8 +279,8 @@ export default function Properties() {
                 key={filter.key}
                 onClick={() => setActiveFilter(filter.key)}
                 className={`px-6 py-3 rounded-full font-medium transition-all duration-500 group ${activeFilter === filter.key
-                    ? 'bg-gradient-to-r from-[#BC6C25] to-[#DDA15E] text-white shadow-lg shadow-[#BC6C25]/30'
-                    : 'bg-black/50 text-gray-300 hover:text-[#DDA15E] hover:bg-[#BC6C25]/10 border border-[#BC6C25]/20'
+                  ? 'bg-gradient-to-r from-[#BC6C25] to-[#DDA15E] text-white shadow-lg shadow-[#BC6C25]/30'
+                  : 'bg-black/50 text-gray-300 hover:text-[#DDA15E] hover:bg-[#BC6C25]/10 border border-[#BC6C25]/20'
                   }`}
               >
                 <span className="flex items-center gap-2">
@@ -255,7 +303,7 @@ export default function Properties() {
                 style={{ transitionDelay: `${index * 100}ms` }}
                 onClick={() => openModal(property)}
               >
-                <div className="relative h-48 bg-gradient-to-br from-[#BC6C25]/20 to-[#DDA15E]/20 overflow-hidden">
+                <div className="relative h-64 bg-gradient-to-br from-[#BC6C25]/20 to-[#DDA15E]/20 overflow-hidden">
                   {property.featured && (
                     <div className="absolute top-4 left-4 bg-gradient-to-r from-[#BC6C25] to-[#DDA15E] text-white px-4 py-2 rounded-full text-sm font-medium z-10 shadow-lg">
                       Destaque
